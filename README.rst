@@ -2,8 +2,8 @@
 Django Rest Framework Captcha
 ======================
 
-.. image:: https://img.shields.io/codeship/1e437ad0-05f2-0135-5add-32bab775782c/master.svg?style=flat-square
-  :target: https://img.shields.io/codeship/1e437ad0-05f2-0135-5add-32bab775782c/master.svg?style=flat-square
+.. image:: https://img.shields.io/codeship/7710f3b0-1d5b-0135-3aa1-76e9fcc9c81a/master.svg?style=flat-square
+  :target: https://img.shields.io/codeship/7710f3b0-1d5b-0135-3aa1-76e9fcc9c81a/master.svg?style=flat-square
 .. image:: https://img.shields.io/codecov/c/github/leonardoarroyo/rest-framework-captcha.svg?style=flat-square
   :target: https://codecov.io/gh/leonardoarroyo/rest-framework-captcha
 .. image:: https://readthedocs.org/projects/rest-framework-captcha/badge/?version=stable&style=flat-square
