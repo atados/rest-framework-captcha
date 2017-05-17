@@ -38,6 +38,7 @@ ALWAYS_MIDDLEWARE_CLASSES = (
 gettext = lambda s: s
 
 settings.configure(
+    ROOT_URLCONF = 'rest_framework_captcha.tests.mock.urls',
     SECRET_KEY="django_tests_secret_key",
     DEBUG=False,
     TEMPLATE_DEBUG=False,
