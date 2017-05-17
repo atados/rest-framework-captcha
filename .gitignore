@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+docs/
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+dist/
+MANIFEST
+.coverage
+coverage.xml
+*.egg-info
