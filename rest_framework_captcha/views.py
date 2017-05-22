@@ -6,5 +6,6 @@ def generate_captcha(request):
   captcha = Captcha()
   response = HttpResponse(captcha.image, content_type="image/png")
   response["X-Captcha-UUID"] = captcha.model_instance.uuid
+  response["Access-Control-Expose-Headers"] = "X-Captcha-UUID"
 
   return response

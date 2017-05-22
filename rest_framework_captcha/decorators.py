@@ -2,13 +2,15 @@ from functools import wraps
 from dateutil.relativedelta import relativedelta
 from django.utils import timezone
 from rest_framework_captcha.models import Captcha
-from rest_framework_captcha.helpers import get_settings
+from rest_framework_captcha.helpers import get_settings, get_request_from_args
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 
 def protected_view(func):
   @wraps(func)
-  def wrapper(request, *args, **kwargs):
+  def wrapper(*args, **kwargs):
+    request = get_request_from_args(*args)
+
     uuid = request.META.get("HTTP_X_CAPTCHA_UUID", None)
     secret = request.META.get("HTTP_X_CAPTCHA_SECRET", None)
     time_limit = get_settings().get("EXPIRE_IN", 5*60)
