@@ -26,6 +26,6 @@ def protected_view(func):
     captcha.fresh = False
     captcha.save()
 
-    return func(request, *args, **kwargs)
+    return func(*args, **kwargs)
 
   return wrapper
