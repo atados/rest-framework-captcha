@@ -16,12 +16,12 @@ def protected_view(func):
     time_limit = get_settings().get("EXPIRE_IN", 5*60)
 
     if not uuid or not secret:
-      return Response({"message": "This view is protected by captcha. You have to set headers X-Captcha-UUID and X-Captcha-Secret with valid values."}, status=400)
+      return Response({"error": True, "detail": "invalid_captcha_headers", "message": "This view is protected by captcha. You have to set headers X-Captcha-UUID and X-Captcha-Secret with valid values."}, status=400)
 
     try:
       captcha = Captcha.objects.get(uuid=uuid, secret__iexact=secret, fresh=True, created_at__gte=timezone.now() - relativedelta(seconds=time_limit))
     except (Captcha.DoesNotExist, ValueError):
-      return Response({"message": "Invalid/expired captcha or incorrect secret."}, status=400)
+      return Response({"error": True, "detail": "invalid_captcha", "message": "Invalid/expired captcha or incorrect secret."}, status=400)
 
     captcha.fresh = False
     captcha.save()
